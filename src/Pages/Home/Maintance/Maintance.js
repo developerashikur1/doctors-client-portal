@@ -1,11 +1,10 @@
 import { Container, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 const Maintance = () => {
     return (
-        // style={{marginTop:'-150px'}}
         <Container>
             <Grid container spacing={5}>
                 <Grid item spacing={1} xs={12} md={4}>
@@ -59,3 +58,5 @@ const Maintance = () => {
 };
 
 export default Maintance;
+
+

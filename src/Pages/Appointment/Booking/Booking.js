@@ -6,7 +6,7 @@ import BookingModals from '../BookingModals/BookingModals';
 
 
 const Booking = ({post, date, setSuccessfully}) => {
-    const {name, space, time} = post;
+    const {name, space, time, price} = post;
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -16,6 +16,7 @@ const Booking = ({post, date, setSuccessfully}) => {
                 <Paper elevation={3} sx={{p:5}}>
                     <Typography variant="h5" sx={{fontWeight:500, color:'info.main'}}>{name}</Typography>
                     <Typography variant="subtitle1" sx={{fontWeight:600}}>{time}</Typography>
+                    <Typography variant="caption">Price: ${price}</Typography><br/>
                     <Typography variant="caption">{space}</Typography><br/>
                     <Button onClick={handleOpen} variant="contained" sx={{mt:3}}>BOOK APPOINTMENT</Button>
                 </Paper>
