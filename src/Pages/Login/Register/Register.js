@@ -1,6 +1,6 @@
 import { Alert, Button, Container, Typography } from '@mui/material';
 import React,{ useState } from 'react';
-import {useHistory} from 'react-router'
+import { useNavigate } from 'react-router'
 import Grid from '@mui/material/Grid';
 import loginImage from '../../../images/login.png';
 import TextField from '@mui/material/TextField';
@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const Register = () => {
     const [loginDetails, setLoginDetails] = useState({});
     const {registerHome, isLoading, user, authError} = useAuth();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleOnBlurButton = (e) =>{
         const field = e.target.name;
@@ -28,7 +28,7 @@ const Register = () => {
             alert('Password did not match');
             return;
         }
-        registerHome(loginDetails.email, loginDetails.password, loginDetails.name, history)
+        registerHome(loginDetails.email, loginDetails.password, loginDetails.name, navigate)
         e.preventDefault();
     };
 

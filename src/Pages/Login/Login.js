@@ -1,6 +1,6 @@
 import { Alert, Button, Container, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import Grid from '@mui/material/Grid';
 import loginImage from '../../images/login.png'
 import TextField from '@mui/material/TextField';
@@ -12,7 +12,7 @@ const Login = () => {
     const [loginDetails, setLoginDetails] = useState({});
     const {authError, loginUser, user,signInUsingGoogle } = useAuth();
     const location= useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleOnchangeButton = (e) =>{
         const field = e.target.name;
@@ -23,12 +23,12 @@ const Login = () => {
     };
 
     const handleLoginForm = (e) =>{
-        loginUser(loginDetails.email, loginDetails.password, location, history);
+        loginUser(loginDetails.email, loginDetails.password, location, navigate);
         e.preventDefault();
     }
 
     const handleGoogleSignIn = () =>{
-        signInUsingGoogle(location, history);
+        signInUsingGoogle(location, navigate);
     }
     return (
         <Container>
